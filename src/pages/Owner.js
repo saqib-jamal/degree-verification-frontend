@@ -13,7 +13,7 @@ function Owner() {
         if (contract) {
             loadUniversities();
         }
-    }, [contract]);
+    }, [contract, loadUniversities]);
 
     const loadUniversities = async () => {
         try {

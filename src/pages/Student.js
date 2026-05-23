@@ -11,7 +11,7 @@ function Student() {
         if (contract && account) {
             loadDegrees();
         }
-    }, [contract, account]);
+    }, [contract, account, loadDegrees]);
 
     const loadDegrees = async () => {
         try {

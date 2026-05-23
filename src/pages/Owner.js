@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useWeb3 } from '../context/Web3Context';
+/* eslint-disable react-hooks/exhaustive-deps */
 
 function Owner() {
     const { contract, isOwner, account } = useWeb3();

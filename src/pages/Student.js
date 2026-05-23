@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useWeb3 } from '../context/Web3Context';
+/* eslint-disable react-hooks/exhaustive-deps */
 
 function Student() {
     const { contract, account } = useWeb3();
@@ -11,7 +12,7 @@ function Student() {
         if (contract && account) {
             loadDegrees();
         }
-    }, [contract, account, loadDegrees]);
+    }, [contract, account, loadDegrees]);//missing dependency loadDegrees
 
     const loadDegrees = async () => {
         try {

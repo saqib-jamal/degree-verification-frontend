@@ -71,6 +71,11 @@ console.log("accounts:", accounts);
             }
         });
     }
+    return () => {
+        if (window.ethereum) {
+            window.ethereum.removeAllListeners('accountsChanged');
+        }
+    };
 }, []);
 
 

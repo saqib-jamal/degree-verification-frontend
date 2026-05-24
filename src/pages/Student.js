@@ -8,11 +8,6 @@ function Student() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    useEffect(() => {
-        if (contract && account) {
-            loadDegrees();
-        }
-    }, [contract, account, loadDegrees]);//missing dependency loadDegrees
 
     const loadDegrees = async () => {
         try {
@@ -29,6 +24,13 @@ function Student() {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        if (contract && account) {
+            loadDegrees();
+        }
+    }, [contract, account, loadDegrees]);//missing dependency loadDegrees
+    
 
     if (!account) {
         return (

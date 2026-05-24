@@ -10,11 +10,6 @@ function Owner() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    useEffect(() => {
-        if (contract) {
-            loadUniversities();
-        }
-    }, [contract, loadUniversities]);
 
     const loadUniversities = async () => {
         try {
@@ -24,6 +19,13 @@ function Owner() {
             console.error(err);
         }
     }
+
+    useEffect(() => {
+        if (contract) {
+            loadUniversities();
+        }
+    }, [contract, loadUniversities]);//callled before declaration
+
 
     if (!account) {
         return (

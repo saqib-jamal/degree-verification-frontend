@@ -96,4 +96,4 @@ console.log("accounts:", accounts);
 
 }
 
-//export default Web3Provider;
+export default Web3Provider;

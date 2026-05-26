@@ -7,7 +7,8 @@ function University() {
     const [degreeName, setDegreeName] = useState('');
     const [major, setMajor] = useState('');
     const [degreeId, setDegreeId] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [issueLoading, setIssueLoading] = useState(false);
+    const [revokeLoading, setRevokeLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
@@ -33,7 +34,7 @@ function University() {
             return;
         }
         try {
-            setLoading(true);
+            setIssueLoading(true);
             setError('');
             setSuccess('');
             const tx = await contract.issueDegree(studentAddress, degreeName, major);
@@ -45,7 +46,7 @@ function University() {
         } catch (err) {
             setError(err.reason || 'Transaction failed');
         } finally {
-            setLoading(false);
+            setIssueLoading(false);
         }
     }
 
@@ -55,7 +56,7 @@ function University() {
             return;
         }
         try {
-            setLoading(true);
+            setRevokeLoading(true);
             setError('');
             setSuccess('');
             const tx = await contract.revokeDegree(degreeId);
@@ -65,7 +66,7 @@ function University() {
         } catch (err) {
             setError(err.reason || 'Transaction failed');
         } finally {
-            setLoading(false);
+            setRevokeLoading(false);
         }
     }
 
@@ -97,8 +98,8 @@ function University() {
                         style={{flex: 1}}
                     />
                 </div>
-                <button onClick={issueDegree} disabled={loading}>
-                    {loading ? 'Processing...' : 'Issue Degree'}
+                <button onClick={issueDegree} disabled={issueLoading}>
+                {issueLoading ? 'Processing...' : 'Issue Degree'}
                 </button>
             </div>
 
@@ -112,12 +113,12 @@ function University() {
                         onChange={(e) => setDegreeId(e.target.value)}
                         style={{flex: 1, marginBottom: 0}}
                     />
-                    <button
-                        onClick={revokeDegree}
-                        disabled={loading}
+                    <button>
+                             onClick={revokeDegree} 
+                             disabled={revokeLoading}
                         style={{backgroundColor: '#ff6b6b', marginBottom: 0, whiteSpace: 'nowrap'}}
-                    >
-                        {loading ? 'Processing...' : 'Revoke Degree'}
+                        
+                       {revokeLoading ? 'Processing...' : 'Revoke Degree'}
                     </button>
                 </div>
             </div>

@@ -41,6 +41,7 @@ function Home() {
                     value={degreeId}
                     onChange={(e) => setDegreeId(e.target.value)}
                     style={{flex: 1, marginBottom: 0}}
+                    onKeyDown={(e) => e.key === 'Enter' && verifyDegree()}
                 />
                 <button onClick={verifyDegree} style={{marginBottom: 0, whiteSpace: 'nowrap'}}>
                     {loading ? 'Verifying...' : 'Verify'}

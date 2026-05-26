@@ -98,6 +98,7 @@ function Owner() {
                         value={universityAddress}
                         onChange={(e) => setUniversityAddress(e.target.value)}
                         style={{flex: 1, marginBottom: 0}}
+                        onKeyDown={(e) => e.key === 'Enter' && registerUniversity()}
                     />
                 </div>
                 <div style={{display: 'flex', gap: '12px'}}>

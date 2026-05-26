@@ -81,6 +81,8 @@ function University() {
                     placeholder="Student Wallet Address"
                     value={studentAddress}
                     onChange={(e) => setStudentAddress(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && issueDegree()}
+
                 />
                 <div style={{display: 'flex', gap: '12px'}}>
                     <input
@@ -112,6 +114,7 @@ function University() {
                         value={degreeId}
                         onChange={(e) => setDegreeId(e.target.value)}
                         style={{flex: 1, marginBottom: 0}}
+                        onKeyDown={(e) => e.key === 'Enter' && revokeDegree()}
                     />
                     <button>
                              onClick={revokeDegree} 

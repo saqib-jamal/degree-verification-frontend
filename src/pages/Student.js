@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useWeb3 } from '../context/Web3Context';
 /* eslint-disable react-hooks/exhaustive-deps */
 
 function Student() {
     const { contract, account } = useWeb3();
     const [degrees, setDegrees] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const hasLoaded = useRef(false);
 
 
     const loadDegrees = async () => {
@@ -26,11 +27,12 @@ function Student() {
     }
 
     useEffect(() => {
-        if (contract && account) {
+        if (contract && account && !hasLoaded.current) {
+            hasLoaded.current = true;
             loadDegrees();
         }
     }, [contract, account, loadDegrees]);//missing dependency loadDegrees
-    
+
 
     if (!account) {
         return (

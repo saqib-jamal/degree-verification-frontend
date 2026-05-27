@@ -28,7 +28,7 @@ function University() {
             setDegreeName('');
             setMajor('');
         } catch (err) {
-            setError(err.reason || 'Transaction failed');
+            setError(err.reason || 'Transaction failed (invalid address)');
         } finally {
             setIssueLoading(false);
         }

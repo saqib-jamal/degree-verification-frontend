@@ -58,7 +58,7 @@ function Owner() {
             setUniversityAddress('');
             loadUniversities();
         } catch (err) {
-            setError(err.reason || 'Transaction failed');
+            setError(err.reason || 'Invalid input');
         } finally {
             setLoading(false);
         }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useWeb3 } from '../context/Web3Context';
+//import { useWeb3 } from '../context/Web3Context';
 import { ethers } from 'ethers';
 import VerificationABI from '../Contracts/Verification.json';
 

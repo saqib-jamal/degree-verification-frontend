@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Owner from './pages/Owner';
 import University from './pages/University';
-import Student from './pages/Student';
+
 
 function App() {
   return (
@@ -15,7 +15,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/owner" element={<Owner />} />
         <Route path="/university" element={<University />} />
-        <Route path="/student" element={<Student />} />
       </Routes>
     </Router>
   );

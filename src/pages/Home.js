@@ -55,7 +55,7 @@ function Home() {
             {degree && (
                 <div className="card" style={{marginTop: '24px'}}>
                     <p><span style={{color: '#a0a0c0'}}>Degree ID:</span> {degree.id.toString()}</p>
-                    <p><span style={{color: '#a0a0c0'}}>Student:</span> {degree.student}</p>
+                    
                     <p><span style={{color: '#a0a0c0'}}>University:</span> {degree.issuingUniversity}</p>
                     <p><span style={{color: '#a0a0c0'}}>Degree:</span> {degree.degreeName}</p>
                     <p><span style={{color: '#a0a0c0'}}>Major:</span> {degree.major}</p>

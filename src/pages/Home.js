@@ -6,7 +6,7 @@ import VerificationABI from '../Contracts/Verification.json';
 const CONTRACT_ADDRESS = "0xd378f800a37F03567FA8ef93De4f8e59D7ae1880";
 const ALCHEMY_URL = "https://eth-sepolia.g.alchemy.com/v2/K0zRXmF-u5eZw-MOJP1I9";
 
-function Home() {
+function DegreeVerification() {
     const [degreeId, setDegreeId] = useState('');
     const [degree, setDegree] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -69,4 +69,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default DegreeVerification;

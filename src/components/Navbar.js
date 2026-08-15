@@ -26,9 +26,9 @@ function Navbar() {
             zIndex: 100
         }}>
             <div style={{display: 'flex', gap: '12px'}}>
-                <Link to="/" style={linkStyle}>Home</Link>
-                <Link to="/owner" style={linkStyle}>Owner</Link>
-                <Link to="/university" style={linkStyle}>University</Link>
+                <Link to="/" style={linkStyle}>DegreeVerification</Link>
+                <Link to="/owner" style={linkStyle}>HEC</Link>
+                <Link to="/university" style={linkStyle}>University Registration</Link>
                 
             </div>
             {account 

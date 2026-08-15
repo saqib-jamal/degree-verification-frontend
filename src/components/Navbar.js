@@ -29,7 +29,7 @@ function Navbar() {
                 <Link to="/" style={linkStyle}>Home</Link>
                 <Link to="/owner" style={linkStyle}>Owner</Link>
                 <Link to="/university" style={linkStyle}>University</Link>
-                <Link to="/student" style={linkStyle}>Student</Link>
+                
             </div>
             {account 
                 ? <span style={{color: '#6c63ff', fontSize: '0.9rem'}}>

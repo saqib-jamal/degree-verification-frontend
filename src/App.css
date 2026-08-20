@@ -99,3 +99,30 @@ button:disabled {
   color: #ff6b6b;
   font-weight: bold;
 }
+/* add to App.css */
+
+.degree-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+}
+
+.degree-card-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.degree-card-body { flex: 1; }
+.degree-card-major { color: #999; margin: 2px 0 12px; }
+.degree-card-row { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px; }
+.degree-card-label { color: #777; }
+.degree-card-address { font-family: monospace; font-size: 12px; }
+
+.status-valid { color: #4ade80; font-weight: 600; }
+.status-revoked { color: #f87171; font-weight: 600; }

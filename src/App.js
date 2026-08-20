@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import DegreeVerification from './pages/Home';
+import Home from './pages/Home';
 import Owner from './pages/Owner';
 import University from './pages/University';
 import Home from './pages/Home';

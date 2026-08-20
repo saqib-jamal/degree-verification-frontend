@@ -31,3 +31,5 @@ function DegreeCard({ degree }) {
     </div>
   );
 }
+
+export default DegreeCard;

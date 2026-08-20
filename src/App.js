@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Owner from './pages/Owner';
 import University from './pages/University';
-import Home from './pages/Home';
+
 
 
 function App() {

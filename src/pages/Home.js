@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import DegreeCard from '../components/DegreeCard';
 import VerificationABI from '../Contracts/Verification.json';
 
-const CONTRACT_ADDRESS = "0xd378f800a37F03567FA8ef93De4f8e59D7ae1880";
+const CONTRACT_ADDRESS = "0x5E674f58D212e9B1f0a8E2F1798866fb4127d5C8";
 
 const ALCHEMY_URL = "https://eth-sepolia.g.alchemy.com/v2/K0zRXmF-u5eZw-MOJP1I9";
 

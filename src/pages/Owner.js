@@ -1,5 +1,3 @@
-// pages/Owner.js — revoke block added
-
 import React, { useState, useEffect } from 'react';
 import { useWeb3 } from '../context/Web3Context';
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -14,6 +12,8 @@ function Owner() {
 
     const [degreeId, setDegreeId] = useState('');
     const [revokeLoading, setRevokeLoading] = useState(false);
+    const [revokeError, setRevokeError] = useState('');
+    const [revokeSuccess, setRevokeSuccess] = useState('');
 
     const loadUniversities = async () => {
         try {
@@ -91,19 +91,19 @@ function Owner() {
 
     const revokeDegree = async () => {
         if (!degreeId) {
-            setError('Please enter a degree ID');
+            setRevokeError('Please enter a degree ID');
             return;
         }
         try {
             setRevokeLoading(true);
-            setError('');
-            setSuccess('');
+            setRevokeError('');
+            setRevokeSuccess('');
             const tx = await contract.revokeDegree(degreeId);
             await tx.wait();
-            setSuccess('Degree revoked successfully');
+            setRevokeSuccess('Degree revoked successfully');
             setDegreeId('');
         } catch (err) {
-            setError(err.reason || 'Transaction failed');
+            setRevokeError(err.reason || 'Transaction failed');
         } finally {
             setRevokeLoading(false);
         }
@@ -159,6 +159,8 @@ function Owner() {
                         {revokeLoading ? 'Processing...' : 'Revoke Degree'}
                     </button>
                 </div>
+                {revokeError && <p className="error">{revokeError}</p>}
+                {revokeSuccess && <p className="success">{revokeSuccess}</p>}
             </div>
 
             <div className="card">

@@ -1,3 +1,5 @@
+// pages/University.js — revoke block removed entirely
+
 import React, { useState } from 'react';
 import { useWeb3 } from '../context/Web3Context';
 
@@ -6,9 +8,7 @@ function University() {
     const [studentAddress, setStudentAddress] = useState('');
     const [degreeName, setDegreeName] = useState('');
     const [major, setMajor] = useState('');
-    const [degreeId, setDegreeId] = useState('');
     const [issueLoading, setIssueLoading] = useState(false);
-    const [revokeLoading, setRevokeLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
@@ -31,26 +31,6 @@ function University() {
             setError(err.reason || 'Transaction failed (invalid address)');
         } finally {
             setIssueLoading(false);
-        }
-    }
-
-    const revokeDegree = async () => {
-        if (!degreeId) {
-            setError('Please enter a degree ID');
-            return;
-        }
-        try {
-            setRevokeLoading(true);
-            setError('');
-            setSuccess('');
-            const tx = await contract.revokeDegree(degreeId);
-            await tx.wait();
-            setSuccess('Degree revoked successfully');
-            setDegreeId('');
-        } catch (err) {
-            setError(err.reason || 'Transaction failed');
-        } finally {
-            setRevokeLoading(false);
         }
     }
 
@@ -94,26 +74,6 @@ function University() {
                             <button onClick={issueDegree} disabled={issueLoading}>
                                 {issueLoading ? 'Processing...' : 'Issue Degree'}
                             </button>
-                        </div>
-
-                        <div className="card">
-                            <h2>Revoke a Degree</h2>
-                            <div style={{display: 'flex', gap: '12px', alignItems: 'center'}}>
-                                <input
-                                    type="number"
-                                    placeholder="Degree ID"
-                                    value={degreeId}
-                                    onChange={(e) => setDegreeId(e.target.value)}
-                                    style={{flex: 1, marginBottom: 0}}
-                                    onKeyDown={(e) => e.key === 'Enter' && revokeDegree()}
-                                />
-                                <button
-                                    onClick={revokeDegree}
-                                    disabled={revokeLoading}
-                                    style={{backgroundColor: '#ff6b6b', marginBottom: 0, whiteSpace: 'nowrap'}}>
-                                    {revokeLoading ? 'Processing...' : 'Revoke Degree'}
-                                </button>
-                            </div>
                         </div>
 
                         {error && <p className="error">{error}</p>}

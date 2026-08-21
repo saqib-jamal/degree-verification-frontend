@@ -2,7 +2,7 @@ import React, {useEffect, createContext, useContext, useState} from 'react';
 import {ethers} from 'ethers';
 import VerificationABI from '../Contracts/Verification.json';
 
-const CONTRACT_ADDRESS = "0xd378f800a37F03567FA8ef93De4f8e59D7ae1880";
+const CONTRACT_ADDRESS = "0x5E674f58D212e9B1f0a8E2F1798866fb4127d5C8";
 const Web3Context = createContext({});
 
 export const useWeb3 = () => useContext(Web3Context);

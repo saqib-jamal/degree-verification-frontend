@@ -1,3 +1,5 @@
+// pages/Owner.js — revoke block added
+
 import React, { useState, useEffect } from 'react';
 import { useWeb3 } from '../context/Web3Context';
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -10,6 +12,8 @@ function Owner() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
+    const [degreeId, setDegreeId] = useState('');
+    const [revokeLoading, setRevokeLoading] = useState(false);
 
     const loadUniversities = async () => {
         try {
@@ -24,7 +28,7 @@ function Owner() {
         if (contract) {
             loadUniversities();
         }
-    }, [contract, loadUniversities]);//callled before declaration
+    }, [contract, loadUniversities]);
 
 
     if (!account) {
@@ -85,6 +89,26 @@ function Owner() {
         }
     }
 
+    const revokeDegree = async () => {
+        if (!degreeId) {
+            setError('Please enter a degree ID');
+            return;
+        }
+        try {
+            setRevokeLoading(true);
+            setError('');
+            setSuccess('');
+            const tx = await contract.revokeDegree(degreeId);
+            await tx.wait();
+            setSuccess('Degree revoked successfully');
+            setDegreeId('');
+        } catch (err) {
+            setError(err.reason || 'Transaction failed');
+        } finally {
+            setRevokeLoading(false);
+        }
+    }
+
     return (
         <div className="page-container">
             <h1>Owner Dashboard</h1>
@@ -115,6 +139,26 @@ function Owner() {
                 </div>
                 {error && <p className="error">{error}</p>}
                 {success && <p className="success">{success}</p>}
+            </div>
+
+            <div className="card">
+                <h2>Revoke a Degree</h2>
+                <div style={{display: 'flex', gap: '12px', alignItems: 'center'}}>
+                    <input
+                        type="number"
+                        placeholder="Degree ID"
+                        value={degreeId}
+                        onChange={(e) => setDegreeId(e.target.value)}
+                        style={{flex: 1, marginBottom: 0}}
+                        onKeyDown={(e) => e.key === 'Enter' && revokeDegree()}
+                    />
+                    <button
+                        onClick={revokeDegree}
+                        disabled={revokeLoading}
+                        style={{backgroundColor: '#ff6b6b', marginBottom: 0, whiteSpace: 'nowrap'}}>
+                        {revokeLoading ? 'Processing...' : 'Revoke Degree'}
+                    </button>
+                </div>
             </div>
 
             <div className="card">

@@ -1,3 +1,5 @@
+// components/DegreeCard.js
+
 import React from "react";
 import logo from "../assets/UniLogo.webp";
 
@@ -6,7 +8,12 @@ function DegreeCard({ degree }) {
 
   return (
     <div className="degree-card">
-      <img src={logo} alt="University logo" className="degree-card-logo" />
+      <div className="degree-card-header">
+        <div className="degree-card-seal">
+          <img src={logo} alt="University logo" className="degree-card-logo" />
+        </div>
+      </div>
+
       <div className="degree-card-body">
         <h3>{degreeName}</h3>
         <p className="degree-card-major">{major}</p>

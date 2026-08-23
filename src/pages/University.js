@@ -1,4 +1,3 @@
-// pages/University.js — revoke block removed entirely
 
 import React, { useState } from 'react';
 import { useWeb3 } from '../context/Web3Context';
@@ -8,12 +7,15 @@ function University() {
     const [studentAddress, setStudentAddress] = useState('');
     const [degreeName, setDegreeName] = useState('');
     const [major, setMajor] = useState('');
+    const [studentName, setStudentName] = useState('');
+    const [fatherName, setFatherName] = useState('');
+    const [regNumber, setRegNumber] = useState('');
     const [issueLoading, setIssueLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const issueDegree = async () => {
-        if (!studentAddress || !degreeName || !major) {
+        if (!studentAddress || !degreeName || !major || !studentName || !fatherName || !regNumber) {
             setError('Please fill in all fields');
             return;
         }
@@ -21,12 +23,25 @@ function University() {
             setIssueLoading(true);
             setError('');
             setSuccess('');
-            const tx = await contract.issueDegree(studentAddress, degreeName, major);
+
+            const cleanRegNumber = regNumber.replace(/-/g, ''); // strip dashes before sending on-chain
+
+            const tx = await contract.issueDegree(
+                studentAddress,
+                degreeName,
+                major,
+                studentName,
+                fatherName,
+                cleanRegNumber
+            );
             await tx.wait();
             setSuccess('Degree issued successfully');
             setStudentAddress('');
             setDegreeName('');
             setMajor('');
+            setStudentName('');
+            setFatherName('');
+            setRegNumber('');
         } catch (err) {
             setError(err.reason || 'Transaction failed (invalid address)');
         } finally {
@@ -71,6 +86,27 @@ function University() {
                                     onKeyDown={(e) => e.key === 'Enter' && issueDegree()}
                                 />
                             </div>
+                            <input
+                                type="text"
+                                placeholder="Student Name"
+                                value={studentName}
+                                onChange={(e) => setStudentName(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && issueDegree()}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Father Name"
+                                value={fatherName}
+                                onChange={(e) => setFatherName(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && issueDegree()}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Registration Number (e.g. 2019-0273849)"
+                                value={regNumber}
+                                onChange={(e) => setRegNumber(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && issueDegree()}
+                            />
                             <button onClick={issueDegree} disabled={issueLoading}>
                                 {issueLoading ? 'Processing...' : 'Issue Degree'}
                             </button>

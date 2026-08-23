@@ -11,16 +11,27 @@ function formatRegNumber(num) {
 function DegreeCard({ degree }) {
   const { id, degreeName, major, issuingUniversity, Name, FName, regNumber, dateIssued, isValid } = degree;
 
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${id.toString()}`;
+  
 
   return (
     <div className="degree-cert">
       <span className="degree-cert-serial">Serial No. {id.toString()}</span>
 
       <div className="degree-cert-header">
-        <h1>Shaheed Benazir Bhutto University, Sheringal</h1>
-        <p>Dir Upper, Khyber Pakhtunkhwa, Pakistan</p>
-      </div>
+  <svg viewBox="0 0 600 140" className="degree-cert-arch">
+    <path
+      id="archPath"
+      d="M 40 130 A 260 260 0 0 1 560 130"
+      fill="none"
+    />
+    <text width="600">
+      <textPath href="#archPath" startOffset="50%" textAnchor="middle">
+        Shaheed Benazir Bhutto University, Sheringal
+      </textPath>
+    </text>
+  </svg>
+  <p>Dir Upper, Khyber Pakhtunkhwa, Pakistan</p>
+</div>
 
       <div className="degree-cert-seal">
         <img src={logo} alt="University seal" />
@@ -38,7 +49,6 @@ function DegreeCard({ degree }) {
       </p>
 
       <div className="degree-cert-footer">
-        <img src={qrUrl} alt="Verification QR code" className="degree-cert-qr" />
         <span className={isValid ? "degree-cert-valid" : "degree-cert-revoked"}>
           {isValid ? "VERIFIED VALID" : "REVOKED"}
         </span>

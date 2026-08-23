@@ -352,8 +352,8 @@ button:disabled {
   height: 100px;
 }
 
-.degree-cert-arch text {
-  font-family: 'UnifrakturMaguntia', serif;
-  font-size: 26px;
-  fill: #1a1a1a;
+.degree-cert-arch {
+  width: 100%;
+  max-width: 480px;
+  height: 120px;
 }

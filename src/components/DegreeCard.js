@@ -18,18 +18,18 @@ function DegreeCard({ degree }) {
       <span className="degree-cert-serial">Serial No. {id.toString()}</span>
 
       <div className="degree-cert-header">
-  <svg viewBox="0 0 600 140" className="degree-cert-arch">
-    <path
-      id="archPath"
-      d="M 40 130 A 260 260 0 0 1 560 130"
-      fill="none"
-    />
-    <text width="600">
-      <textPath href="#archPath" startOffset="50%" textAnchor="middle">
-        Shaheed Benazir Bhutto University, Sheringal
-      </textPath>
-    </text>
-  </svg>
+<svg viewBox="0 0 600 160" className="degree-cert-arch">
+  <path
+    id="archPath"
+    d="M 40 140 Q 300 20 560 140"
+    fill="none"
+  />
+  <text width="600">
+    <textPath href="#archPath" startOffset="50%" textAnchor="middle">
+      Shaheed Benazir Bhutto University, Sheringal
+    </textPath>
+  </text>
+</svg>
   <p>Dir Upper, Khyber Pakhtunkhwa, Pakistan</p>
 </div>
 

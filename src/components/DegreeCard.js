@@ -18,10 +18,10 @@ function DegreeCard({ degree }) {
       <span className="degree-cert-serial">Serial No. {id.toString()}</span>
 
       <div className="degree-cert-header">
-<svg viewBox="0 0 600 160" className="degree-cert-arch">
+<svg viewBox="0 -20 600 180" className="degree-cert-arch">
   <path
     id="archPath"
-    d="M 40 140 Q 300 20 560 140"
+    d="M 40 150 Q 300 -30 560 150"
     fill="none"
   />
   <text width="600">

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 
 * {
@@ -103,7 +102,7 @@ button:disabled {
   font-weight: bold;
 }
 
-/* ===== Degree Card ===== */
+/* ===== Degree Card (unused now, kept in case you revert) ===== */
 
 .degree-card {
   position: relative;
@@ -238,6 +237,8 @@ button:disabled {
   }
 }
 
+/* ===== Degree Certificate (active design) ===== */
+
 .degree-cert {
   position: relative;
   max-width: 640px;
@@ -268,12 +269,16 @@ button:disabled {
   font-family: 'Courier New', monospace;
 }
 
-.degree-cert-header h1 {
+.degree-cert-arch {
+  width: 100%;
+  max-width: 480px;
+  height: 150px;
+}
+
+.degree-cert-arch text {
   font-family: 'UnifrakturMaguntia', serif;
-  font-size: 26px;
-  margin: 8px 0 4px;
-  letter-spacing: 0.02em;
-  font-weight: normal;
+  font-size: 30px;
+  fill: #1a1a1a;
 }
 
 .degree-cert-header p {
@@ -322,11 +327,6 @@ button:disabled {
   margin-top: 28px;
 }
 
-.degree-cert-qr {
-  width: 72px;
-  height: 72px;
-}
-
 .degree-cert-valid,
 .degree-cert-revoked {
   font-weight: bold;
@@ -345,15 +345,4 @@ button:disabled {
 .degree-cert-revoked {
   color: #a03434;
   border: 2px solid #a03434;
-}
-.degree-cert-arch {
-  width: 100%;
-  max-width: 480px;
-  height: 100px;
-}
-
-.degree-cert-arch {
-  width: 100%;
-  max-width: 480px;
-  height: 120px;
 }

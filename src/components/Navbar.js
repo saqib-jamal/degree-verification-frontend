@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useWeb3 } from '../context/Web3Context';
 
 function Navbar() {
     const { account, connectWallet } = useWeb3();
+    const location = useLocation();
 
     const linkStyle = {
         color: '#a0a0c0',
@@ -12,6 +13,10 @@ function Navbar() {
         borderRadius: '6px',
         backgroundColor: '#1a1a2e'
     };
+
+    const isHec = location.pathname.startsWith('/hec');
+    const isUniversity = location.pathname.startsWith('/university');
+    const isPublicVerify = location.pathname === '/verify';
 
     return (
         <nav style={{
@@ -26,17 +31,29 @@ function Navbar() {
             zIndex: 100
         }}>
             <div style={{display: 'flex', gap: '12px'}}>
-                <Link to="/" style={linkStyle}>Degree Verification</Link>
-                <Link to="/owner" style={linkStyle}>HEC(University Registration)</Link>
-                <Link to="/university" style={linkStyle}>Degree Registration</Link>
-                
+                {isHec && (
+                    <>
+                        <Link to="/hec/verify" style={linkStyle}>Verify Degree</Link>
+                        <Link to="/hec/owner" style={linkStyle}>Owner Panel</Link>
+                    </>
+                )}
+                {isUniversity && (
+                    <>
+                        <Link to="/university/verify" style={linkStyle}>Verify Degree</Link>
+                        <Link to="/university/registration" style={linkStyle}>Degree Registration</Link>
+                    </>
+                )}
+                {isPublicVerify && (
+                    <span style={{color: '#e0e0e0', fontWeight: 'bold'}}>Degree Verification Portal</span>
+                )}
             </div>
-            {account 
-                ? <span style={{color: '#6c63ff', fontSize: '0.9rem'}}>
-                    Connected: {account.slice(0,6)}...{account.slice(-4)}
-                  </span>
-                : <button onClick={connectWallet}>Connect Wallet</button>
-            }
+            {!isPublicVerify && (
+                account 
+                    ? <span style={{color: '#6c63ff', fontSize: '0.9rem'}}>
+                        Connected: {account.slice(0,6)}...{account.slice(-4)}
+                      </span>
+                    : <button onClick={connectWallet}>Connect Wallet</button>
+            )}
         </nav>
     );
 }

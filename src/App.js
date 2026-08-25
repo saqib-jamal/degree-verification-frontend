@@ -6,16 +6,16 @@ import Home from './pages/Home';
 import Owner from './pages/Owner';
 import University from './pages/University';
 
-
-
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/owner" element={<Owner />} />
-        <Route path="/university" element={<University />} />
+        <Route path="/verify" element={<Home />} />
+        <Route path="/hec/verify" element={<Home />} />
+        <Route path="/hec/owner" element={<Owner />} />
+        <Route path="/university/verify" element={<Home />} />
+        <Route path="/university/registration" element={<University />} />
       </Routes>
     </Router>
   );

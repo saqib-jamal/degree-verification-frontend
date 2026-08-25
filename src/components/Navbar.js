@@ -34,7 +34,7 @@ function Navbar() {
                 {isHec && (
                     <>
                         <Link to="/hec/verify" style={linkStyle}>Verify Degree</Link>
-                        <Link to="/hec/owner" style={linkStyle}>Owner Panel</Link>
+                        <Link to="/hec/owner" style={linkStyle}>HEC Control Panel</Link>
                     </>
                 )}
                 {isUniversity && (

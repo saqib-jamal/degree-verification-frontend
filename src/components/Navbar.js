@@ -7,11 +7,11 @@ function Navbar() {
     const location = useLocation();
 
     const linkStyle = {
-        color: '#a0a0c0',
+        color: '#e8edf3',
         textDecoration: 'none',
         padding: '8px 16px',
         borderRadius: '6px',
-        backgroundColor: '#1a1a2e'
+        backgroundColor: '#16324f'
     };
 
     const isHec = location.pathname.startsWith('/hec');
@@ -20,12 +20,12 @@ function Navbar() {
 
     return (
         <nav style={{
-            backgroundColor: '#16213e',
+            backgroundColor: '#0a1f38',
             padding: '16px 40px',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            borderBottom: '1px solid #2a2a4a',
+            borderBottom: '3px solid #b8912f',
             position: 'sticky',
             top: 0,
             zIndex: 100
@@ -34,7 +34,7 @@ function Navbar() {
                 {isHec && (
                     <>
                         <Link to="/hec/verify" style={linkStyle}>Verify Degree</Link>
-                        <Link to="/hec/owner" style={linkStyle}>HEC Control Panel</Link>
+                        <Link to="/hec/owner" style={linkStyle}>Owner Panel</Link>
                     </>
                 )}
                 {isUniversity && (
@@ -44,12 +44,12 @@ function Navbar() {
                     </>
                 )}
                 {isPublicVerify && (
-                    <span style={{color: '#e0e0e0', fontWeight: 'bold'}}>Degree Verification Portal</span>
+                    <span style={{color: '#ffffff', fontWeight: 'bold'}}>Degree Verification Portal</span>
                 )}
             </div>
             {!isPublicVerify && (
                 account 
-                    ? <span style={{color: '#6c63ff', fontSize: '0.9rem'}}>
+                    ? <span style={{color: '#d9c37a', fontSize: '0.9rem'}}>
                         Connected: {account.slice(0,6)}...{account.slice(-4)}
                       </span>
                     : <button onClick={connectWallet}>Connect Wallet</button>

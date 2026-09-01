@@ -6,13 +6,14 @@ function Navbar() {
     const { account, connectWallet } = useWeb3();
     const location = useLocation();
 
-    const linkStyle = {
-        color: '#e8edf3',
-        textDecoration: 'none',
-        padding: '8px 16px',
-        borderRadius: '6px',
-        backgroundColor: '#16324f'
-    };
+   const linkStyle = (path) => ({
+    color: '#e8edf3',
+    textDecoration: 'none',
+    padding: '8px 16px',
+    borderRadius: '6px',
+    backgroundColor: location.pathname === path ? '#2a4d73' : '#16324f',
+    border: location.pathname === path ? '1px solid #b8912f' : '1px solid transparent'
+});
 
     const isHec = location.pathname.startsWith('/hec');
     const isUniversity = location.pathname.startsWith('/university');
@@ -33,14 +34,14 @@ function Navbar() {
             <div style={{display: 'flex', gap: '12px'}}>
                 {isHec && (
                     <>
-                        <Link to="/hec/verify" style={linkStyle}>Verify Degree</Link>
-                        <Link to="/hec/owner" style={linkStyle}>Owner Panel</Link>
+                        <Link to="/hec/verify" style={linkStyle('/hec/verify')}>Verify Degree</Link>
+                        <Link to="/hec/owner" style={linkStyle('/hec/owner')}>Owner Panel</Link>
                     </>
                 )}
                 {isUniversity && (
                     <>
-                        <Link to="/university/verify" style={linkStyle}>Verify Degree</Link>
-                        <Link to="/university/registration" style={linkStyle}>Degree Registration</Link>
+                        <Link to="/university/verify" style={linkStyle('/university/verify')}>Verify Degree</Link>
+                        <Link to="/university/registration" style={linkStyle('/university/registration')}>Degree Registration</Link>
                     </>
                 )}
                 {isPublicVerify && (

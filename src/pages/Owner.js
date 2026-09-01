@@ -169,12 +169,12 @@ function Owner() {
                     ? <p style={{color: '#a0a0c0'}}>No universities registered yet</p>
                     : universities.map((address, index) => (
                         <div key={index} style={{
-                            padding: '12px',
-                            marginBottom: '8px',
-                            backgroundColor: '#1a1a2e',
-                            borderRadius: '8px',
-                            color: '#6c63ff'
-                        }}>
+    padding: '12px',
+    marginBottom: '8px',
+    backgroundColor: '#eef2f6',
+    borderRadius: '8px',
+    color: '#0d2b4e'
+}}>
                             {index + 1}. {address}
                         </div>
                     ))

@@ -117,15 +117,21 @@ button:disabled {
 
 @media (max-width: 480px) {
   .degree-cert {
-    padding: 48px 20px 40px;
+    padding: 40px 20px 32px;
     margin: 20px 12px 0;
   }
-  .degree-cert-degree { font-size: 17px; }
-  .degree-cert-name { font-size: 15px; margin-bottom: 24px; }
-  .degree-cert-line { font-size: 12px; }
+  .degree-cert-arch {
+    height: 100px;
+  }
+  .degree-cert-arch text { font-size: 20px; }
+  .degree-cert-header p { margin-bottom: 8px; }
+  .degree-cert-degree { font-size: 17px; margin: 6px 0 10px; }
+  .degree-cert-name { font-size: 15px; margin-bottom: 16px; }
+  .degree-cert-line { font-size: 12px; margin: 8px 0; }
   .degree-cert-mono { font-size: 10px; }
-  .degree-cert-seal img { width: 60px; height: 60px; }
+  .degree-cert-seal img { width: 54px; height: 54px; margin-bottom: 12px; }
   .degree-cert-serial { top: 12px; left: 14px; font-size: 10px; }
+  .degree-cert-footer { margin-top: 14px; }
 }
 
 .degree-cert::before {

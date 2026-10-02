@@ -19,11 +19,7 @@ function DegreeCard({ degree }) {
 
       <div className="degree-cert-header">
 <svg viewBox="0 -20 600 180" className="degree-cert-arch">
-  <path
-    id="archPath"
-    d="M 40 150 Q 300 -30 560 150"
-    fill="none"
-  />
+  <path id="archPath" d="M 40 150 Q 300 -30 560 150" fill="none" />
   <text width="600">
     <textPath href="#archPath" startOffset="50%" textAnchor="middle">
       Shaheed Benazir Bhutto University, Sheringal

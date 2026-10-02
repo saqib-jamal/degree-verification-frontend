@@ -115,6 +115,19 @@ button:disabled {
   font-family: 'Georgia', 'Times New Roman', serif;
 }
 
+@media (max-width: 480px) {
+  .degree-cert {
+    padding: 48px 20px 40px;
+    margin: 20px 12px 0;
+  }
+  .degree-cert-degree { font-size: 17px; }
+  .degree-cert-name { font-size: 15px; margin-bottom: 24px; }
+  .degree-cert-line { font-size: 12px; }
+  .degree-cert-mono { font-size: 10px; }
+  .degree-cert-seal img { width: 60px; height: 60px; }
+  .degree-cert-serial { top: 12px; left: 14px; font-size: 10px; }
+}
+
 .degree-cert::before {
   content: "";
   position: absolute;

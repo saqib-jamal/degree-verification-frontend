@@ -123,7 +123,11 @@ button:disabled {
   .degree-cert-arch {
     height: 100px;
   }
-  .degree-cert-arch text { font-size: 20px; }
+  .degree-cert-arch text {
+  font-family: 'UnifrakturMaguntia', serif;
+  font-size: clamp(14px, 3.2vw, 28px);
+  fill: #1a1a1a;
+}
   .degree-cert-header p { margin-bottom: 8px; }
   .degree-cert-degree { font-size: 17px; margin: 6px 0 10px; }
   .degree-cert-name { font-size: 15px; margin-bottom: 16px; }

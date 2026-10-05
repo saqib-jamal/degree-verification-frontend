@@ -23,14 +23,15 @@ function DegreeCard({ degree }) {
     <path id="archPath" d="M 50 140 Q 300 10 550 140" />
   </defs>
   <text>
-    <textPath
-      href="#archPath"
-      startOffset="50%"
-      textAnchor="middle"
-    >
-      Shaheed Benazir Bhutto University, Sheringal
-    </textPath>
-  </text>
+  <textPath
+    href="#archPath"
+    startOffset="50%"
+    textAnchor="middle"
+    style={{ fontSize: window.innerWidth < 480 ? '18px' : '30px' }}
+  >
+    Shaheed Benazir Bhutto University, Sheringal
+  </textPath>
+</text>
 </svg>
   <p>Dir Upper, Khyber Pakhtunkhwa, Pakistan</p>
 </div>

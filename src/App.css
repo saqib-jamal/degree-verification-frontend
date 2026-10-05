@@ -156,12 +156,12 @@ button:disabled {
 
 .degree-cert-arch text {
   font-family: 'UnifrakturMaguntia', serif;
-  font-size: clamp(8px, 1.8vw, 13px);
+  font-size: 13px;
   fill: #1a1a1a;
 }
 
 .degree-cert-header p {
- font-size: clamp(14px, 3.2vw, 28px);
+ font-size: 13px;
   color: #555;
   margin-bottom: 16px;
 }

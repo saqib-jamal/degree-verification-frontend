@@ -173,9 +173,9 @@ button:disabled {
   border: 2px solid #c9a227;
   padding: 6px;
   background: #fff;
-  margin-bottom: 20px;
-}
-
+  margin-top: 16px;
+  margin-bottom: 16px;
+} 
 .degree-cert-line {
   font-size: 14px;
   margin: 14px 0

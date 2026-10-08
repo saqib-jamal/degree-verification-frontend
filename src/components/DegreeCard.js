@@ -33,12 +33,16 @@ function DegreeCard({ degree }) {
   </textPath>
 </text>
 </svg>
+
+<div className="degree-cert-seal">
+        <img src={logo} alt="University seal" />
+      </div>
+
+      
   <p>Dir Upper, Khyber Pakhtunkhwa, Pakistan</p>
 </div>
 
-      <div className="degree-cert-seal">
-        <img src={logo} alt="University seal" />
-      </div>
+      
 
       <p className="degree-cert-line">Having fulfilled all the requirements for the Degree of</p>
       <h2 className="degree-cert-degree">{degreeName} — {major}</h2>
